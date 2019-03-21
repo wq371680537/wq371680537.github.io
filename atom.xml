@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-03-19T13:05:49.921Z</updated>
+  <updated>2019-03-21T02:42:48.750Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,15 +21,15 @@
     <link href="http://yoursite.com/2019/03/19/sql%E6%B3%A8%E5%85%A5/"/>
     <id>http://yoursite.com/2019/03/19/sql注入/</id>
     <published>2019-03-19T12:57:55.000Z</published>
-    <updated>2019-03-19T13:05:49.921Z</updated>
+    <updated>2019-03-21T02:42:48.750Z</updated>
     
-    <content type="html"><![CDATA[<p>（3）<br><img src="1.png" alt=""></p>]]></content>
+    <content type="html"><![CDATA[<p>（3）高权限文件插入注入<br>数据用户：数据库内置用户<br><img src="/2019/03/19/sql注入/background.jpg" alt="图片"></p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;（3）&lt;br&gt;&lt;img src=&quot;1.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+        &lt;p&gt;（3）高权限文件插入注入&lt;br&gt;数据用户：数据库内置用户&lt;br&gt;&lt;img src=&quot;/2019/03/19/sql注入/background.jpg&quot; alt=&quot;图片&quot;&gt;&lt;/p&gt;
 
       
     
