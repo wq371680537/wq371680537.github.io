@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-03-24T11:28:18.960Z</updated>
+  <updated>2019-03-24T13:09:58.991Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,15 +21,15 @@
     <link href="http://yoursite.com/2019/03/19/sql%E6%B3%A8%E5%85%A5/"/>
     <id>http://yoursite.com/2019/03/19/sql注入/</id>
     <published>2019-03-19T12:57:55.000Z</published>
-    <updated>2019-03-24T11:28:18.960Z</updated>
+    <updated>2019-03-24T13:09:58.991Z</updated>
     
-    <content type="html"><![CDATA[<p>（3）高权限文件插入注入<br>数据用户：user()<br>操作系统：@@version_compile_os<br>Mysql 注入文件操作<br>不同用户数据库读取文件权限<br>文件读入： select load_file(‘文件路径’)<br>文件写入函数：select ‘内容’ into outfile ‘储存路径’<br><img src="/2019/03/19/sql注入/文件读取1.png" alt="图片"><br>实际操作需要知道网站路径；<br>获取方法</p><ol><li>报错显示<br><img src="/2019/03/19/sql注入/报错显示.png" alt="报错显示"> </li><li>谷歌黑客<br>网站带有warning关键字的<br>寻找该网站的错误信息如图<br>site:+该网站 空格 warning<br><img src="/2019/03/19/sql注入/谷歌黑客1.png" alt="谷歌黑客"> </li><li>读取配置文件</li><li>漏洞报错</li><li>遗留文件<br>网址后面加/phpinfo.php<br><img src="/2019/03/19/sql注入/遗留文件.png" alt="遗留文件"><br>里面有网站路径<br><img src="/2019/03/19/sql注入/遗留文件之网站路径.png" alt="遗留文件之网站路径"> </li><li>字典猜解<br><img src="/2019/03/19/sql注入/1.jpg" alt="图片"></li></ol>]]></content>
+    <content type="html"><![CDATA[<p>（1）sql注入原理<br><img src="/2019/03/19/sql注入/sql注入原理.png" alt="sql注入原理"><br>（2）常见的MySQL注入<br>        MySQL数据库<br>结构<br>        数据库A=网站A<br>表名<br>     列名<br>           数据<br>        数据库B=网站B<br>表名<br>     列名<br>           数据<br>        数据库C=网站C<br>表名<br>     列名<br>           数据<br>获取字段数：order by x 取临界值<br>输入注意1<br>%20是空格的意识<br><img src="/2019/03/19/sql注入/输入注意1.png" alt="输入注意1"><br>获取数据库名： database()<br>获取数据库版本：version()<br>各表名<br><img src="/2019/03/19/sql注入/各表名.png" alt="各表名"><br>（3）高权限文件插入注入<br>数据用户：user()<br>操作系统：@@version_compile_os<br>Mysql 注入文件操作<br>不同用户数据库读取文件权限<br>文件读入： select load_file(‘文件路径’)<br>文件写入函数：select ‘内容’ into outfile ‘储存路径’<br><img src="/2019/03/19/sql注入/文件读取1.png" alt="图片"><br>实际操作需要知道网站路径；<br>获取方法</p><ol><li>报错显示<br><img src="/2019/03/19/sql注入/报错显示.png" alt="报错显示"> </li><li>谷歌黑客<br>网站带有warning关键字的<br>寻找该网站的错误信息如图<br>site:+该网站 空格 warning<br><img src="/2019/03/19/sql注入/谷歌黑客1.png" alt="谷歌黑客"> </li><li>读取配置文件</li><li>漏洞报错</li><li>遗留文件<br>网址后面加/phpinfo.php<br><img src="/2019/03/19/sql注入/遗留文件.png" alt="遗留文件"><br>里面有网站路径<br><img src="/2019/03/19/sql注入/遗留文件之网站路径.png" alt="遗留文件之网站路径"> </li><li>字典猜解<br>注意：路径符号及编码斜杆可以/或\避免斜杆n<br>（4）魔术引号 magic_quotes_gpc 开关<br><img src="/2019/03/19/sql注入/魔术密码.png" alt="魔术密码"><br> 安全函数 addslashes<br>注入时要单引号等会被转义<br>绕过思路<br>（1）编码绕过<br><img src="/2019/03/19/sql注入/编码绕过.png" alt="编码绕过"><br>(2)   宽字节注入</li></ol><p><img src="/2019/03/19/sql注入/1.jpg" alt="图片"></p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;（3）高权限文件插入注入&lt;br&gt;数据用户：user()&lt;br&gt;操作系统：@@version_compile_os&lt;br&gt;Mysql 注入文件操作&lt;br&gt;不同用户数据库读取文件权限&lt;br&gt;文件读入： select load_file(‘文件路径’)&lt;br&gt;文件写入函数：sel
+        &lt;p&gt;（1）sql注入原理&lt;br&gt;&lt;img src=&quot;/2019/03/19/sql注入/sql注入原理.png&quot; alt=&quot;sql注入原理&quot;&gt;&lt;br&gt;（2）常见的MySQL注入&lt;br&gt;        MySQL数据库&lt;br&gt;结构&lt;br&gt;        数据库A=网站A&lt;br&gt;表
       
     
     </summary>

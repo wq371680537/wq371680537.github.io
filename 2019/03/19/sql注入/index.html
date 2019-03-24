@@ -81,25 +81,30 @@
 
 
 
-<meta name="description" content="（3）高权限文件插入注入数据用户：user()操作系统：@@version_compile_osMysql 注入文件操作不同用户数据库读取文件权限文件读入： select load_file(‘文件路径’)文件写入函数：select ‘内容’ into outfile ‘储存路径’实际操作需要知道网站路径；获取方法  报错显示  谷歌黑客网站带有warning关键字的寻找该网站的错误信息如图sit">
+<meta name="description" content="（1）sql注入原理（2）常见的MySQL注入        MySQL数据库结构        数据库A=网站A表名     列名           数据        数据库B=网站B表名     列名           数据        数据库C=网站C表名     列名           数据获取字段数：order by x 取临界值输入注意1%20是空格的意识获取数据库名： da">
 <meta name="keywords" content="����">
 <meta property="og:type" content="article">
 <meta property="og:title" content="sql注入">
 <meta property="og:url" content="http://yoursite.com/2019/03/19/sql注入/index.html">
 <meta property="og:site_name" content="a meter sunshine">
-<meta property="og:description" content="（3）高权限文件插入注入数据用户：user()操作系统：@@version_compile_osMysql 注入文件操作不同用户数据库读取文件权限文件读入： select load_file(‘文件路径’)文件写入函数：select ‘内容’ into outfile ‘储存路径’实际操作需要知道网站路径；获取方法  报错显示  谷歌黑客网站带有warning关键字的寻找该网站的错误信息如图sit">
+<meta property="og:description" content="（1）sql注入原理（2）常见的MySQL注入        MySQL数据库结构        数据库A=网站A表名     列名           数据        数据库B=网站B表名     列名           数据        数据库C=网站C表名     列名           数据获取字段数：order by x 取临界值输入注意1%20是空格的意识获取数据库名： da">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://yoursite.com/2019/03/19/sql注入/sql注入原理.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/19/sql注入/输入注意1.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/19/sql注入/各表名.png">
 <meta property="og:image" content="http://yoursite.com/2019/03/19/sql注入/文件读取1.png">
 <meta property="og:image" content="http://yoursite.com/2019/03/19/sql注入/报错显示.png">
 <meta property="og:image" content="http://yoursite.com/2019/03/19/sql注入/谷歌黑客1.png">
 <meta property="og:image" content="http://yoursite.com/2019/03/19/sql注入/遗留文件.png">
 <meta property="og:image" content="http://yoursite.com/2019/03/19/sql注入/遗留文件之网站路径.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/19/sql注入/魔术密码.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/19/sql注入/编码绕过.png">
 <meta property="og:image" content="http://yoursite.com/2019/03/19/sql注入/1.jpg">
-<meta property="og:updated_time" content="2019-03-24T11:28:18.960Z">
+<meta property="og:updated_time" content="2019-03-24T13:09:58.991Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="sql注入">
-<meta name="twitter:description" content="（3）高权限文件插入注入数据用户：user()操作系统：@@version_compile_osMysql 注入文件操作不同用户数据库读取文件权限文件读入： select load_file(‘文件路径’)文件写入函数：select ‘内容’ into outfile ‘储存路径’实际操作需要知道网站路径；获取方法  报错显示  谷歌黑客网站带有warning关键字的寻找该网站的错误信息如图sit">
-<meta name="twitter:image" content="http://yoursite.com/2019/03/19/sql注入/文件读取1.png">
+<meta name="twitter:description" content="（1）sql注入原理（2）常见的MySQL注入        MySQL数据库结构        数据库A=网站A表名     列名           数据        数据库B=网站B表名     列名           数据        数据库C=网站C表名     列名           数据获取字段数：order by x 取临界值输入注意1%20是空格的意识获取数据库名： da">
+<meta name="twitter:image" content="http://yoursite.com/2019/03/19/sql注入/sql注入原理.png">
 
 
 
@@ -355,6 +360,37 @@
           
 
           
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  
+                </span>
+              
+            </div>
+          
 
           
 
@@ -371,15 +407,16 @@
       
 
       
-        <p>（3）高权限文件插入注入<br>数据用户：user()<br>操作系统：@@version_compile_os<br>Mysql 注入文件操作<br>不同用户数据库读取文件权限<br>文件读入： select load_file(‘文件路径’)<br>文件写入函数：select ‘内容’ into outfile ‘储存路径’<br><img src="/2019/03/19/sql注入/文件读取1.png" alt="图片"><br>实际操作需要知道网站路径；<br>获取方法</p>
+        <p>（1）sql注入原理<br><img src="/2019/03/19/sql注入/sql注入原理.png" alt="sql注入原理"><br>（2）常见的MySQL注入<br>        MySQL数据库<br>结构<br>        数据库A=网站A<br>表名<br>     列名<br>           数据<br>        数据库B=网站B<br>表名<br>     列名<br>           数据<br>        数据库C=网站C<br>表名<br>     列名<br>           数据<br>获取字段数：order by x 取临界值<br>输入注意1<br>%20是空格的意识<br><img src="/2019/03/19/sql注入/输入注意1.png" alt="输入注意1"><br>获取数据库名： database()<br>获取数据库版本：version()<br>各表名<br><img src="/2019/03/19/sql注入/各表名.png" alt="各表名"><br>（3）高权限文件插入注入<br>数据用户：user()<br>操作系统：@@version_compile_os<br>Mysql 注入文件操作<br>不同用户数据库读取文件权限<br>文件读入： select load_file(‘文件路径’)<br>文件写入函数：select ‘内容’ into outfile ‘储存路径’<br><img src="/2019/03/19/sql注入/文件读取1.png" alt="图片"><br>实际操作需要知道网站路径；<br>获取方法</p>
 <ol>
 <li>报错显示<br><img src="/2019/03/19/sql注入/报错显示.png" alt="报错显示"> </li>
 <li>谷歌黑客<br>网站带有warning关键字的<br>寻找该网站的错误信息如图<br>site:+该网站 空格 warning<br><img src="/2019/03/19/sql注入/谷歌黑客1.png" alt="谷歌黑客"> </li>
 <li>读取配置文件</li>
 <li>漏洞报错</li>
 <li>遗留文件<br>网址后面加/phpinfo.php<br><img src="/2019/03/19/sql注入/遗留文件.png" alt="遗留文件"><br>里面有网站路径<br><img src="/2019/03/19/sql注入/遗留文件之网站路径.png" alt="遗留文件之网站路径"> </li>
-<li>字典猜解<br><img src="/2019/03/19/sql注入/1.jpg" alt="图片"></li>
+<li>字典猜解<br>注意：路径符号及编码斜杆可以/或\避免斜杆n<br>（4）魔术引号 magic_quotes_gpc 开关<br><img src="/2019/03/19/sql注入/魔术密码.png" alt="魔术密码"><br> 安全函数 addslashes<br>注入时要单引号等会被转义<br>绕过思路<br>（1）编码绕过<br><img src="/2019/03/19/sql注入/编码绕过.png" alt="编码绕过"><br>(2)   宽字节注入</li>
 </ol>
+<p><img src="/2019/03/19/sql注入/1.jpg" alt="图片"></p>
 
       
     </div>
@@ -426,6 +463,24 @@
       </div>
     
 
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    wq
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://yoursite.com/2019/03/19/sql注入/" title="sql注入">http://yoursite.com/2019/03/19/sql注入/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
     
 
     <footer class="post-footer">
@@ -650,6 +705,15 @@
   <span class="author" itemprop="copyrightHolder">wq</span>
 
   
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count"></span>
+  
 </div>
 
 
@@ -657,11 +721,7 @@
 
 
 
-  <span class="post-meta-divider">|</span>
 
-
-
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
 
 <div>
 <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
@@ -674,6 +734,34 @@
 </span>
 </div>
 
+<span id="sitetime"></span>
+<script language="javascript">
+  function siteTime(){
+    window.setTimeout("siteTime()", 1000);
+    var seconds = 1000;
+    var minutes = seconds * 60;
+    var hours = minutes * 60;
+    var days = hours * 24;
+    var years = days * 365;
+    var today = new Date();
+    var todayYear = today.getFullYear();
+    var todayMonth = today.getMonth()+1;
+    var todayDate = today.getDate();
+    var todayHour = today.getHours();
+    var todayMinute = today.getMinutes();
+    var todaySecond = today.getSeconds();
+    var t1 = Date.UTC(2018,06,07,12,00,00); // ���ý�����վ��ʱ��
+    var t2 = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond);
+    var diff = t2-t1;
+    var diffYears = Math.floor(diff/years);
+    var diffDays = Math.floor((diff/days)-diffYears*365);
+    var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
+    var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
+    var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
+    document.getElementById("sitetime").innerHTML=" ������"+diffYears+" �� "diffDays+" �� "+diffHours+" Сʱ "+diffMinutes+" ���� "+diffSeconds+" ��";
+  }
+  siteTime();
+</script>
 
 
 
@@ -848,5 +936,5 @@
 
   
 
-</body>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 </html>
