@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[sql注入]]></title>
     <url>%2F2019%2F03%2F19%2Fsql%E6%B3%A8%E5%85%A5%2F</url>
-    <content type="text"><![CDATA[（3）高权限文件插入注入数据用户：数据库内置用户]]></content>
+    <content type="text"><![CDATA[（3）高权限文件插入注入数据用户：user()操作系统：@@version_compile_osMysql 注入文件操作不同用户数据库读取文件权限文件读入： select load_file(‘文件路径’)文件写入函数：select ‘内容’ into outfile ‘储存路径’实际操作需要知道网站路径；获取方法 报错显示 谷歌黑客网站带有warning关键字的寻找该网站的错误信息如图site:+该网站 空格 warning 读取配置文件 漏洞报错 遗留文件网址后面加/phpinfo.php里面有网站路径 字典猜解]]></content>
   </entry>
   <entry>
     <title><![CDATA[hahaha]]></title>
