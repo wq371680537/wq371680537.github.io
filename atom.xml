@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-03-24T13:09:58.991Z</updated>
+  <updated>2019-03-26T13:30:30.466Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,153 +17,23 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>sql注入</title>
-    <link href="http://yoursite.com/2019/03/19/sql%E6%B3%A8%E5%85%A5/"/>
-    <id>http://yoursite.com/2019/03/19/sql注入/</id>
-    <published>2019-03-19T12:57:55.000Z</published>
-    <updated>2019-03-24T13:09:58.991Z</updated>
+    <title>mysql注入</title>
+    <link href="http://yoursite.com/2019/03/25/mysql%E6%B3%A8%E5%85%A5/"/>
+    <id>http://yoursite.com/2019/03/25/mysql注入/</id>
+    <published>2019-03-25T13:23:47.000Z</published>
+    <updated>2019-03-26T13:30:30.466Z</updated>
     
-    <content type="html"><![CDATA[<p>（1）sql注入原理<br><img src="/2019/03/19/sql注入/sql注入原理.png" alt="sql注入原理"><br>（2）常见的MySQL注入<br>        MySQL数据库<br>结构<br>        数据库A=网站A<br>表名<br>     列名<br>           数据<br>        数据库B=网站B<br>表名<br>     列名<br>           数据<br>        数据库C=网站C<br>表名<br>     列名<br>           数据<br>获取字段数：order by x 取临界值<br>输入注意1<br>%20是空格的意识<br><img src="/2019/03/19/sql注入/输入注意1.png" alt="输入注意1"><br>获取数据库名： database()<br>获取数据库版本：version()<br>各表名<br><img src="/2019/03/19/sql注入/各表名.png" alt="各表名"><br>（3）高权限文件插入注入<br>数据用户：user()<br>操作系统：@@version_compile_os<br>Mysql 注入文件操作<br>不同用户数据库读取文件权限<br>文件读入： select load_file(‘文件路径’)<br>文件写入函数：select ‘内容’ into outfile ‘储存路径’<br><img src="/2019/03/19/sql注入/文件读取1.png" alt="图片"><br>实际操作需要知道网站路径；<br>获取方法</p><ol><li>报错显示<br><img src="/2019/03/19/sql注入/报错显示.png" alt="报错显示"> </li><li>谷歌黑客<br>网站带有warning关键字的<br>寻找该网站的错误信息如图<br>site:+该网站 空格 warning<br><img src="/2019/03/19/sql注入/谷歌黑客1.png" alt="谷歌黑客"> </li><li>读取配置文件</li><li>漏洞报错</li><li>遗留文件<br>网址后面加/phpinfo.php<br><img src="/2019/03/19/sql注入/遗留文件.png" alt="遗留文件"><br>里面有网站路径<br><img src="/2019/03/19/sql注入/遗留文件之网站路径.png" alt="遗留文件之网站路径"> </li><li>字典猜解<br>注意：路径符号及编码斜杆可以/或\避免斜杆n<br>（4）魔术引号 magic_quotes_gpc 开关<br><img src="/2019/03/19/sql注入/魔术密码.png" alt="魔术密码"><br> 安全函数 addslashes<br>注入时要单引号等会被转义<br>绕过思路<br>（1）编码绕过<br><img src="/2019/03/19/sql注入/编码绕过.png" alt="编码绕过"><br>(2)   宽字节注入</li></ol><p><img src="/2019/03/19/sql注入/1.jpg" alt="图片"></p>]]></content>
+    <content type="html"><![CDATA[<p>[TOC]</p><h2 id="（1）sql注入原理"><a href="#（1）sql注入原理" class="headerlink" title="（1）sql注入原理"></a>（1）sql注入原理</h2><p><img src="/2019/03/25/mysql注入/sql注入原理.png" alt="sql注入原理"><br><a id="more"></a></p><h2 id="（2）常见的MySQL注入"><a href="#（2）常见的MySQL注入" class="headerlink" title="（2）常见的MySQL注入"></a>（2）常见的MySQL注入</h2><p>​        MySQL数据库<br>结构<br>​        数据库A=网站A<br>表名<br>​     列名<br>​           数据<br>​        数据库B=网站B<br>表名<br>​     列名<br>​           数据<br>​        数据库C=网站C<br>表名<br>​     列名<br>​           数据<br>获取字段数：order by x 取临界值<br>输入注意1<br>%20是空格的意识<br><img src="/2019/03/25/mysql注入/输入注意1.png" alt="输入注意1"><br>获取数据库名： database()<br>获取数据库版本：version()<br>各表名<br><img src="/2019/03/25/mysql注入/各表名.png" alt="各表名"></p><h2 id="（3）高权限文件插入注入"><a href="#（3）高权限文件插入注入" class="headerlink" title="（3）高权限文件插入注入"></a>（3）高权限文件插入注入</h2><p>数据用户：user()<br>操作系统：@@version_compile_os<br>Mysql 注入文件操作<br>不同用户数据库读取文件权限<br>文件读入： select load_file(‘文件路径’)<br>文件写入函数：select ‘内容’ into outfile ‘储存路径’<br><img src="/2019/03/25/mysql注入/文件读取1.png" alt="图片"><br>实际操作需要知道网站路径；<br>获取方法</p><ol><li><p>报错显示<br><img src="/2019/03/25/mysql注入/报错显示.png" alt="报错显示"> </p></li><li><p>谷歌黑客<br>网站带有warning关键字的<br>寻找该网站的错误信息如图<br>site:+该网站 空格 warning<br><img src="/2019/03/25/mysql注入/谷歌黑客1.png" alt="谷歌黑客"> </p></li><li><p>读取配置文件</p></li><li><p>漏洞报错</p></li><li><p>遗留文件<br>网址后面加/phpinfo.php<br><img src="/2019/03/25/mysql注入/遗留文件.png" alt="遗留文件"><br>里面有网站路径<br><img src="/2019/03/25/mysql注入/遗留文件之网站路径.png" alt="遗留文件之网站路径"> </p></li><li><p>字典猜解<br>注意：路径符号及编码斜杆可以/或\避免斜杆n</p><h2 id="（4）防护函数"><a href="#（4）防护函数" class="headerlink" title="（4）防护函数"></a>（4）防护函数</h2><p>魔术引号 magic_quotes_gpc 开关<br><img src="/2019/03/25/mysql注入/魔术密码.png" alt="魔术密码"><br> 安全函数 addslashes<br>注入时要单引号等会被转义<br>绕过思路<br>（1）编码绕过<br><img src="/2019/03/25/mysql注入/编码绕过.png" alt="编码绕过"><br>  (2)   宽字节注入</p><h2 id="（5）高权限跨库注入"><a href="#（5）高权限跨库注入" class="headerlink" title="（5）高权限跨库注入"></a>（5）高权限跨库注入</h2><p>跨库注入条件：root权限</p><p><img src="/2019/03/25/mysql注入/跨库输入2.png" alt="跨库输入2"></p><p><img src="/2019/03/25/mysql注入/获取数据库各表名1.png" alt="获取数据库各表名1"></p><p><img src="/2019/03/25/mysql注入/跨库输入3.png" alt="跨库输入3"></p><h2 id="（6）提交方式注入"><a href="#（6）提交方式注入" class="headerlink" title="（6）提交方式注入"></a>（6）提交方式注入</h2><p> <img src="/2019/03/25/mysql注入/文件提交1.png" alt="文件提交1"></p><p><img src="/2019/03/25/mysql注入/文件提交2.png" alt="文件提交2"></p><p>  1.GET ：?x=1</p><p>  2.POST登录注入</p><p>一般是登入框有</p><p><img src="/2019/03/25/mysql注入/文件提交3.png" alt="文件提交3"></p><p>单引post注入</p><p><img src="/2019/03/25/mysql注入/文件提交5.png" alt="文件提交5"></p><p>   3.COOLIE验证注入</p><p>抓包</p><p>  没有 Cookie:自己写一下</p><p><img src="/2019/03/25/mysql注入/文件提交4.png" alt="文件提交4"></p><h2 id="（7）-HTTP头部注入"><a href="#（7）-HTTP头部注入" class="headerlink" title="（7）.HTTP头部注入"></a>（7）.HTTP头部注入</h2><p>实际情况下，有部分站点接受数据是以数据包中的http头部进去数据</p><p>接受，所以测试注入点的时候，需要注入语句写到http头部中。</p><p><img src="/2019/03/25/mysql注入/HTTP头部注入1.png" alt="HTTP头部注入1"></p><p><img src="/2019/03/25/mysql注入/HTTP头部注入2.png" alt="HTTP头部注入2"></p><h2 id="（8）-参数类型注入"><a href="#（8）-参数类型注入" class="headerlink" title="（8）.参数类型注入"></a>（8）.参数类型注入</h2><p>数字，字符，搜索型</p><p><img src="/2019/03/25/mysql注入/参数类型注入1.png" alt="参数类型注入1"></p><p>字符型的注入例子</p><p>如果是字符型一般会存在单引号要考虑屏蔽</p><p>如果不考虑注入语句会被写入单引号内</p><p><img src="/2019/03/25/mysql注入/参数类型注入2.png" alt="参数类型注入2"></p><p>所以前面的单引号加另一半屏蔽后面的加#号屏蔽</p><p>%27为一个单引号%23为#号</p><p><img src="/2019/03/25/mysql注入/参数类型注入3.png" alt="参数类型注入3"></p><p>搜索型的注入例子</p><p><img src="/2019/03/25/mysql注入/参数类型注入4.png" alt="参数类型注入4"></p><h2 id="（9）参数加解密注入"><a href="#（9）参数加解密注入" class="headerlink" title="（9）参数加解密注入"></a>（9）参数加解密注入</h2><p>加解密注入</p><p>常见加密格式：</p><p>如果网站后面跟着这样的赋值要想到加密</p><p>如base加密</p><p><img src="/2019/03/25/mysql注入/加解密注入3.png" alt="加解密注入3"></p><p><img src="/2019/03/25/mysql注入/加解密注入1.png" alt="加解密注入1"></p><p><img src="/2019/03/25/mysql注入/加解密注入2.png" alt="加解密注入2"></p><h2 id="（10）盲注攻击-基于时间延迟注入（上）"><a href="#（10）盲注攻击-基于时间延迟注入（上）" class="headerlink" title="（10）盲注攻击-基于时间延迟注入（上）"></a>（10）盲注攻击-基于时间延迟注入（上）</h2><p>盲注与普通注入区别</p><p><img src="/2019/03/25/mysql注入/盲注1.png" alt="盲注1"></p><p>sleep()延迟作用</p><p>if(条件,true,false)如果条件为真返回第一个，假返回第二个</p><p>mid(str,截取的位数,第几个)截取</p><p>ord ascii编码</p><p>运用</p><p><img src="/2019/03/25/mysql注入/盲注2.png" alt="盲注2"></p><p>可以先知道他的位数</p><p><img src="/2019/03/25/mysql注入/盲注3.png" alt="盲注3"></p><h2 id="（11）盲注攻击-基于时间延迟注入（下）"><a href="#（11）盲注攻击-基于时间延迟注入（下）" class="headerlink" title="（11）盲注攻击-基于时间延迟注入（下）"></a>（11）盲注攻击-基于时间延迟注入（下）</h2><p>获取表名</p><p><img src="/2019/03/25/mysql注入/盲注4.png" alt="盲注4"></p><p>单个字的匹配</p><p>如用mid截取第一位的值判断</p><p><img src="/2019/03/25/mysql注入/盲注5.png" alt="盲注5"></p><p>用ascii码来代替字符</p><p><img src="/2019/03/25/mysql注入/盲注6.png" alt="盲注6"></p></li></ol>]]></content>
     
     <summary type="html">
     
-      
-      
-        &lt;p&gt;（1）sql注入原理&lt;br&gt;&lt;img src=&quot;/2019/03/19/sql注入/sql注入原理.png&quot; alt=&quot;sql注入原理&quot;&gt;&lt;br&gt;（2）常见的MySQL注入&lt;br&gt;        MySQL数据库&lt;br&gt;结构&lt;br&gt;        数据库A=网站A&lt;br&gt;表
-      
+      &lt;p&gt;[TOC]&lt;/p&gt;
+&lt;h2 id=&quot;（1）sql注入原理&quot;&gt;&lt;a href=&quot;#（1）sql注入原理&quot; class=&quot;headerlink&quot; title=&quot;（1）sql注入原理&quot;&gt;&lt;/a&gt;（1）sql注入原理&lt;/h2&gt;&lt;p&gt;&lt;img src=&quot;/2019/03/25/mysql注入/sql注入原理.png&quot; alt=&quot;sql注入原理&quot;&gt;&lt;br&gt;&lt;/p&gt;
     
     </summary>
     
     
-  </entry>
-  
-  <entry>
-    <title>hahaha</title>
-    <link href="http://yoursite.com/2018/12/08/hahaha/"/>
-    <id>http://yoursite.com/2018/12/08/hahaha/</id>
-    <published>2018-12-08T09:10:14.000Z</published>
-    <updated>2018-12-08T09:10:14.426Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>my first</title>
-    <link href="http://yoursite.com/2018/12/08/my-first/"/>
-    <id>http://yoursite.com/2018/12/08/my-first/</id>
-    <published>2018-12-08T07:19:57.000Z</published>
-    <updated>2018-12-08T07:19:57.273Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>you are good</title>
-    <link href="http://yoursite.com/2018/12/08/you-are-good/"/>
-    <id>http://yoursite.com/2018/12/08/you-are-good/</id>
-    <published>2018-12-08T06:48:50.000Z</published>
-    <updated>2018-12-08T06:49:53.133Z</updated>
-    
-    <content type="html"><![CDATA[<pre><code>my ctfmy ctfmy ctfmy ctfmy ctfmy ctfmy ctfmy ctfmy ctfmy ctf</code></pre>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;pre&gt;&lt;code&gt;my ctf
-my ctf
-my ctf
-my ctf
-my ctf
-my ctf
-my ctf
-my ctf
-my ctf
-my ctf
-&lt;/code&gt;&lt;/pre&gt;
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>my ctf</title>
-    <link href="http://yoursite.com/2018/12/08/my-ctf/"/>
-    <id>http://yoursite.com/2018/12/08/my-ctf/</id>
-    <published>2018-12-08T04:50:25.000Z</published>
-    <updated>2018-12-08T04:50:25.281Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>&#39;my-first-blog&#39;</title>
-    <link href="http://yoursite.com/2018/12/06/my-first-blog/"/>
-    <id>http://yoursite.com/2018/12/06/my-first-blog/</id>
-    <published>2018-12-06T15:07:26.000Z</published>
-    <updated>2018-12-06T15:07:26.550Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>我的第一篇文章</title>
-    <link href="http://yoursite.com/2018/11/17/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/"/>
-    <id>http://yoursite.com/2018/11/17/我的第一篇文章/</id>
-    <published>2018-11-17T01:38:26.000Z</published>
-    <updated>2018-12-08T08:43:09.803Z</updated>
-    
-    <content type="html"><![CDATA[<p>一条狗应该很快就好看</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;一条狗应该很快就好看&lt;/p&gt;
-
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Hello World</title>
-    <link href="http://yoursite.com/2018/11/17/hello-world/"/>
-    <id>http://yoursite.com/2018/11/17/hello-world/</id>
-    <published>2018-11-17T00:15:29.691Z</published>
-    <updated>2018-11-17T00:15:29.692Z</updated>
-    
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
-      
-    
-    </summary>
-    
+      <category term="-ctf入门" scheme="http://yoursite.com/tags/ctf%E5%85%A5%E9%97%A8/"/>
     
   </entry>
   
