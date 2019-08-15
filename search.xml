@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[php]]></title>
+    <url>%2F2019%2F08%2F15%2Fphp%2F</url>
+    <content type="text"><![CDATA[php基础[TOC]]]></content>
+  </entry>
+  <entry>
     <title><![CDATA[ctf基础入门]]></title>
     <url>%2F2019%2F04%2F04%2Fctf%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8%2F</url>
     <content type="text"><![CDATA[（1）信息收集]]></content>
