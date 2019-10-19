@@ -88,7 +88,7 @@
   <entry>
     <title><![CDATA[CG_ctf_writeup]]></title>
     <url>%2F2019%2F09%2F25%2FCG-ctf-writeup%2F</url>
-    <content type="text"><![CDATA[题目连接 一，签到题 右键检查元素找到flag 二，md5 collision php弱类型 == 比较时会把科学计数0E加一串数字看成0 QNKCDZO MD5 加密后为0e830400451993494058024219903391 即上面那种形式 只要找到这样形式的解密后的字符串就可以了 现成的有如下 QNKCDZO0e830400451993494058024219903391 s878926199a0e545993274517709034328855841020 s155964671a0e342768416822451524974117254469 s214587387a0e848240448830537924465865611904 s214587387a0e848240448830537924465865611904 s878926199a0e545993274517709034328855841020 s1091221200a0e940624217856561557816327384675 s1885207154a0e509367213418206700842008763514 带入其中一个得到flag 三，签到2发现输入框不能把全部文字输入 右键检查元素更改输入长度再输入 得到flag 四，这题不是WEB点进去有字有图片，检查元素没有结果 题目提示不是web，于是保存图片后用txt打开后搜索nctf得到flag 五，层层递进进去之后是一个网页 右键点击检查元素 web文件夹里面发现404.html点进去发现flag nctf{this_is_a_fl4g} 六，AAencode打开是乱码用火狐打开更改编码方式 复制转码后的表情到控制台 我用的是IE浏览器的控制台 在页面上得到flag 七，单身二十年题目说试试手速，即网页很快就跳走了 于是想到用Burp抓包就可以得到flag 八，php decode发现一段php代码 贴到在线工具把eval改成echo就可以得到flag]]></content>
+    <content type="text"><![CDATA[题目连接 一，签到题 右键检查元素找到flag 二，md5 collision php弱类型 == 比较时会把科学计数0E加一串数字看成0 QNKCDZO MD5 加密后为0e830400451993494058024219903391 即上面那种形式 只要找到这样形式的解密后的字符串就可以了 现成的有如下 QNKCDZO0e830400451993494058024219903391 s878926199a0e545993274517709034328855841020 s155964671a0e342768416822451524974117254469 s214587387a0e848240448830537924465865611904 s214587387a0e848240448830537924465865611904 s878926199a0e545993274517709034328855841020 s1091221200a0e940624217856561557816327384675 s1885207154a0e509367213418206700842008763514 带入其中一个得到flag 三，签到2发现输入框不能把全部文字输入 右键检查元素更改输入长度再输入 得到flag 四，这题不是WEB点进去有字有图片，检查元素没有结果 题目提示不是web，于是保存图片后用txt打开后搜索nctf得到flag 五，层层递进进去之后是一个网页 右键点击检查元素 web文件夹里面发现404.html点进去发现flag nctf{this_is_a_fl4g} 六，AAencode打开是乱码用火狐打开更改编码方式 复制转码后的表情到控制台 我用的是IE浏览器的控制台 在页面上得到flag 七，单身二十年题目说试试手速，即网页很快就跳走了 于是想到用Burp抓包就可以得到flag 八，php decode发现一段php代码 贴到在线工具把eval改成echo就可以得到flag 九, 文件包含http://4.chinalover.sinaapp.com/web7/index.php?file=php://filter/read=convert.base64-encode/resource=index.php 利用php伪协议进行做题 file=php://filter/read=convert.base64-encode/resource=index.php 对index.php源码进行编码 该网址得到一串base64码 解码得到源码下面有flag nctf{edulcni_elif_lacol_si_siht} 十，单身一百年也没用]]></content>
       <tags>
         <tag>ctf</tag>
       </tags>
@@ -96,7 +96,10 @@
   <entry>
     <title><![CDATA[BugkuCTF-WEB-WriteUp(持续更新)]]></title>
     <url>%2F2019%2F09%2F25%2FBugkuCTF-WEB-WriteUp-%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0%2F</url>
-    <content type="text"></content>
+    <content type="text"><![CDATA[1，web2 右键检查元素 得到key KEY{Web-2-bugKssNNikls9100} 2，计算器 发现只能输入一位数 右键检查元素更改输入长度 然后输入和得到keyflag{CTF-bugku-0032} 3，web基础$_GET 题目要用get传值构造 得到flag flag{bugku_get_su8kej2en} 4，web基础$_POST 用火狐浏览器进行post 得到flag flag{bugku_get_ssseint67se} 5，矛盾 是数字又不是数字构造得到flag flag{bugku-789-ps-ssdf} 6,web3打开网站一直弹窗右键检查元素得到 一串unicode码 &#75;&#69;&#89;&#123;&#74;&#50;&#115;&#97;&#52;&#50;&#97;&#104;&#74;&#75;&#45;&#72;&#83;&#49;&#49;&#73;&#73;&#73;&#125; 转ascii码得到 KEY{J2sa42ahJK-HS11III} 7，你必须让他停下按进去网页一直跳来跳去 题目说要让他停下来于是 进行抓包得到flag flag{dummy_game_1s_s0_popular} 8，变量1与南邮解法一样 9，web5右键检查元素发现字符复制出来在控制台运行 得到flag CTF{WHATFK} 题目提示大写 10，头等舱抓包得到flag flag{Bugku_k8_23s_istra} 11，网站被黑后台扫描得到两个200网址 出现登录界面，随便输入密码进行抓包 send to intruder add那个密码串 选中自带密码进行抓包 长度不一样的就是代码 输入密码得到flag flag{hack_bug_ku035} 12，管理员系统右键检查元素得到一串base64码 解密得到 test123 应该是密码，用户名用admin 登录提示用本地管理员登录 对他进行抓包 X-Forwarded-For: 127.0.0.1 伪装成本地ip 按go 得到flag 85ff2ee4171396724bae20c0bd851f6b 13，web4看看源码得到一串字符 unescape解密得到 var p1 = 'function checkSubmit(){var a=document.getElementById("password");if("undefined"!=typeof a){if("67d709b2b'; var p2 = 'aa648cf6e87a7114f1"==a.value)return!0;alert("Error");a.focus();return!1}}document.getElementById("levelQuest").onsubmit=checkSubmit;'; eval(unescape(p1) + unescape('54aa2' + p2)); 拼接得到67d709b2b54aa2aa648cf6e87a7114f1 输入得到flag KEY{J22JK-HS11} 14，输入密码查看flag五位数密码，抓包进行爆破 得到密码13579 输入得到flag flag{bugku-baopo-hah} 15，点击一百万次post传值右键检查元素 进行post传值 得到flag flag{Not_C00kI3Cl1ck3r}]]></content>
+      <tags>
+        <tag>ctf</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[代码审计]]></title>

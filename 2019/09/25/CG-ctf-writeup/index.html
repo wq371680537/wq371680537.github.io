@@ -105,7 +105,8 @@
 <meta property="og:image" content="https://wq371680537.github.io/2019/09/25/CG-ctf-writeup/web7_1.png">
 <meta property="og:image" content="https://wq371680537.github.io/2019/09/25/CG-ctf-writeup/web7_2.png">
 <meta property="og:image" content="https://wq371680537.github.io/2019/09/25/CG-ctf-writeup/web8_1.png">
-<meta property="og:updated_time" content="2019-09-26T08:14:07.777Z">
+<meta property="og:image" content="https://wq371680537.github.io/2019/09/25/CG-ctf-writeup/web9_1.png">
+<meta property="og:updated_time" content="2019-09-28T03:45:31.384Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CG_ctf_writeup">
 <meta name="twitter:description" content="题目连接 一，签到题">
@@ -411,7 +412,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  325
+                  407
                 </span>
               
 
@@ -498,7 +499,15 @@
 <h3 id="八，php-decode"><a href="#八，php-decode" class="headerlink" title="八，php decode"></a>八，php decode</h3><p>发现一段php代码</p>
 <p>贴到在线工具把eval改成echo就可以得到flag</p>
 <p><img src="/2019/09/25/CG-ctf-writeup/web8_1.png" alt="web8_1"></p>
-
+<h3 id="九-文件包含"><a href="#九-文件包含" class="headerlink" title="九, 文件包含"></a>九, 文件包含</h3><p><a href="http://4.chinalover.sinaapp.com/web7/index.php?file=php://filter/read=convert.base64-encode/resource=index.php" target="_blank" rel="noopener">http://4.chinalover.sinaapp.com/web7/index.php?file=php://filter/read=convert.base64-encode/resource=index.php</a></p>
+<p>利用php伪协议进行做题</p>
+<p>file=php://filter/read=convert.base64-encode/resource=index.php</p>
+<p>对index.php源码进行编码</p>
+<p>该网址得到一串base64码</p>
+<p>解码得到源码下面有flag</p>
+<p><img src="/2019/09/25/CG-ctf-writeup/web9_1.png" alt="web9_1"></p>
+<p>nctf{edulcni_elif_lacol_si_siht}</p>
+<h3 id="十，单身一百年也没用"><a href="#十，单身一百年也没用" class="headerlink" title="十，单身一百年也没用"></a>十，单身一百年也没用</h3>
       
     </div>
     
@@ -808,7 +817,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一，签到题"><span class="nav-number">1.</span> <span class="nav-text">一，签到题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二，md5-collision"><span class="nav-number">2.</span> <span class="nav-text">二，md5 collision</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三，签到2"><span class="nav-number">3.</span> <span class="nav-text">三，签到2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四，这题不是WEB"><span class="nav-number">4.</span> <span class="nav-text">四，这题不是WEB</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#五，层层递进"><span class="nav-number">5.</span> <span class="nav-text">五，层层递进</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#六，AAencode"><span class="nav-number">6.</span> <span class="nav-text">六，AAencode</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#七，单身二十年"><span class="nav-number">7.</span> <span class="nav-text">七，单身二十年</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#八，php-decode"><span class="nav-number">8.</span> <span class="nav-text">八，php decode</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一，签到题"><span class="nav-number">1.</span> <span class="nav-text">一，签到题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二，md5-collision"><span class="nav-number">2.</span> <span class="nav-text">二，md5 collision</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三，签到2"><span class="nav-number">3.</span> <span class="nav-text">三，签到2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四，这题不是WEB"><span class="nav-number">4.</span> <span class="nav-text">四，这题不是WEB</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#五，层层递进"><span class="nav-number">5.</span> <span class="nav-text">五，层层递进</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#六，AAencode"><span class="nav-number">6.</span> <span class="nav-text">六，AAencode</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#七，单身二十年"><span class="nav-number">7.</span> <span class="nav-text">七，单身二十年</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#八，php-decode"><span class="nav-number">8.</span> <span class="nav-text">八，php decode</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#九-文件包含"><span class="nav-number">9.</span> <span class="nav-text">九, 文件包含</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#十，单身一百年也没用"><span class="nav-number">10.</span> <span class="nav-text">十，单身一百年也没用</span></a></li></ol></div>
             
 
           </div>
@@ -842,7 +851,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">12.2k</span>
+    <span title="Site words total count">12.8k</span>
   
 </div>
 
