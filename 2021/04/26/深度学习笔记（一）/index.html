@@ -1,0 +1,1461 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="人工智能,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="a meter sunshine" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="深度学习笔记（一）">
+<meta name="keywords" content="人工智能">
+<meta property="og:type" content="article">
+<meta property="og:title" content="深度学习笔记（一）">
+<meta property="og:url" content="https://wq371680537.github.io/2021/04/26/深度学习笔记（一）/index.html">
+<meta property="og:site_name" content="a meter sunshine">
+<meta property="og:description" content="深度学习笔记（一）">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://wq371680537.github.io/2021/04/26/深度学习笔记（一）/1.png">
+<meta property="og:image" content="https://wq371680537.github.io/2021/04/26/深度学习笔记（一）/2.png">
+<meta property="og:image" content="https://wq371680537.github.io/2021/04/26/深度学习笔记（一）/3.png">
+<meta property="og:image" content="https://wq371680537.github.io/2021/04/26/深度学习笔记（一）/4.png">
+<meta property="og:image" content="https://wq371680537.github.io/2021/04/26/深度学习笔记（一）/5.png">
+<meta property="og:image" content="https://wq371680537.github.io/2021/04/26/深度学习笔记（一）/6.png">
+<meta property="og:image" content="https://wq371680537.github.io/2021/04/26/深度学习笔记（一）/7.png">
+<meta property="og:image" content="https://wq371680537.github.io/2021/04/26/深度学习笔记（一）/8.png">
+<meta property="og:image" content="https://wq371680537.github.io/2021/04/26/深度学习笔记（一）/9.png">
+<meta property="og:image" content="https://wq371680537.github.io/2021/04/26/深度学习笔记（一）/10.png">
+<meta property="og:image" content="https://wq371680537.github.io/2021/04/26/深度学习笔记（一）/11.png">
+<meta property="og:image" content="https://wq371680537.github.io/2021/04/26/深度学习笔记（一）/12.png">
+<meta property="og:image" content="https://wq371680537.github.io/2021/04/26/深度学习笔记（一）/13.png">
+<meta property="og:image" content="https://wq371680537.github.io/2021/04/26/深度学习笔记（一）/14.png">
+<meta property="og:image" content="https://wq371680537.github.io/2021/04/26/深度学习笔记（一）/15.png">
+<meta property="og:image" content="https://wq371680537.github.io/2021/04/26/深度学习笔记（一）/16.png">
+<meta property="og:image" content="https://wq371680537.github.io/2021/04/26/深度学习笔记（一）/17.png">
+<meta property="og:image" content="https://wq371680537.github.io/2021/04/26/深度学习笔记（一）/18.png">
+<meta property="og:image" content="https://wq371680537.github.io/2021/04/26/深度学习笔记（一）/19.png">
+<meta property="og:image" content="https://wq371680537.github.io/2021/04/26/深度学习笔记（一）/20.png">
+<meta property="og:updated_time" content="2021-04-28T11:44:32.692Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="深度学习笔记（一）">
+<meta name="twitter:description" content="深度学习笔记（一）">
+<meta name="twitter:image" content="https://wq371680537.github.io/2021/04/26/深度学习笔记（一）/1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://wq371680537.github.io/2021/04/26/深度学习笔记（一）/">
+
+
+
+
+
+  <title>深度学习笔记（一） | a meter sunshine</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+<a href="https://wq371680537.github.io/"><img width="149" height="149" style="position: absolute; top: 0; right: 0; border: 0;" src="https://github.blog/wp-content/uploads/2008/12/forkme_right_orange_ff7600.png?resize=149%2C149" class="attachment-full size-full" alt="Fork me on GitHub" data-recalc-dims="1"></a>
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">a meter sunshine</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Program Life</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br>
+            
+            日程表
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br>
+            
+            站点地图
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br>
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://wq371680537.github.io/2021/04/26/深度学习笔记（一）/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="wq">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/touxiang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="a meter sunshine">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">深度学习笔记（一）</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-04-26T19:24:57+08:00">
+                2021-04-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2.6k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  12
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="深度学习笔记（一）"><a href="#深度学习笔记（一）" class="headerlink" title="深度学习笔记（一）"></a>深度学习笔记（一）</h1><a id="more"></a>
+<h2 id="第一章-深度学习必备知识点"><a href="#第一章-深度学习必备知识点" class="headerlink" title="第一章 深度学习必备知识点"></a>第一章 深度学习必备知识点</h2><h3 id="深度学习的套路"><a href="#深度学习的套路" class="headerlink" title="深度学习的套路"></a>深度学习的套路</h3><p> 与机器学习套路一样<br>1.收集数据并给定标签<br>2.训练一个分类器<br>3.测试，评估</p>
+<pre><code>def train(train_images,train_labels)
+
+    return model
+
+def predict(model,test_images)
+
+    return model
+</code></pre><p>​    </p>
+<h3 id="K-近邻"><a href="#K-近邻" class="headerlink" title="K-近邻"></a>K-近邻</h3><p>对于未知类别属性数据集的中点</p>
+<p>1.计算已知类别数据集中的点与当前点的距离。</p>
+<p>2.按照距离依次排序。</p>
+<p>3.选取与当前点距离最小的K个点。</p>
+<p>4.确定前K个点所在类别的出现概率。</p>
+<p>5.返回前K个点出现频率最高的类别作为当前点预测分类。</p>
+<p>注：KNN不需要训练集进行训练，训练时间复杂度为0，计算复杂度与文档数成正比。</p>
+<p>数据库样例：CIFAR-10</p>
+<p>10类标签，50000个测试数据，10000个测试数据，大小32*32</p>
+<p>KNN怎么计算呢？</p>
+<p>对测试图像矩阵与训练矩阵的差得到的矩阵求和</p>
+<p>K-近邻代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">import numpy as np</span><br><span class="line">class NearestNeighbor</span><br><span class="line">  def __init__(self)</span><br><span class="line">      pass</span><br><span class="line">  def train(self,X,y)</span><br><span class="line">     self.Xtr = x</span><br><span class="line">     self.Ytr = y</span><br><span class="line">  def predict(self,X)</span><br><span class="line">     num_test = X.shape[0]</span><br><span class="line">     Ypred = np.zeros(num_test,dtype = self.ytr.dtype)</span><br><span class="line">     #</span><br><span class="line">     for i in xrang(num_test):</span><br><span class="line">        distance = np.sum(np.abs(self.Xtr-X[i,:]),axis = 1)</span><br><span class="line">        min_index = np.argmin(distance)#得到最小距离</span><br><span class="line">        Ypred[i] = self.ytr[min_index]</span><br><span class="line">    return Ypred</span><br></pre></td></tr></table></figure>
+<p>一般把距离叫做超参数，是可以更改的。</p>
+<p>不同的变换不能用K-近邻来表示图像分类</p>
+<h3 id="神经网络"><a href="#神经网络" class="headerlink" title="神经网络"></a>神经网络</h3><p>实例：</p>
+<p><img src="/2021/04/26/深度学习笔记（一）/1.png" alt="1"></p>
+<p>权重矩阵*像素矩阵+偏置值=分类矩阵</p>
+<p>预测错误怎么办？</p>
+<p>采用损失函数：如SVM函数，损失值高就有问题了</p>
+<p><img src="/2021/04/26/深度学习笔记（一）/2.png" alt="2"></p>
+<p>如下图，设W1，W2，为两个模型，第一个模型，只考虑了第一个像素，虽然可能结果一样。</p>
+<p>第一个模型只关注一部分，会导致过拟合。</p>
+<p><img src="/2021/04/26/深度学习笔记（一）/3.png" alt="3"></p>
+<p>为了解决这个问题，需要加入一个正则化，就是正则惩罚项</p>
+<p><img src="/2021/04/26/深度学习笔记（一）/4.png" alt="4"></p>
+<p>终极版的损失函数</p>
+<p><img src="/2021/04/26/深度学习笔记（一）/5.png" alt="5"></p>
+<p>sigmoid函数代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">def sigmoid(x):</span><br><span class="line">    return 1.0/(1+np.exp(-x))</span><br></pre></td></tr></table></figure>
+<p>Softmax分类器：（归一化的分类概率）</p>
+<p><img src="/2021/04/26/深度学习笔记（一）/6.png" alt="6"></p>
+<p>一个大的数可以映射成一个更大的数，小的映射大不了多少。</p>
+<p>在log的（0，1）范围内，概率等于1，损失值为0，概率越小，损失值越大，符合log函数，要加上负号。</p>
+<p>最优化softmax：（永远有损失值）</p>
+<p><img src="/2021/04/26/深度学习笔记（一）/7.png" alt="7"></p>
+<h3 id="机器学习"><a href="#机器学习" class="headerlink" title="机器学习"></a>机器学习</h3><p>不断的优化过程：跟下山很像，虽然可能有稍微的起伏，但是总体上是往下。</p>
+<p>跟随梯度：</p>
+<p><img src="/2021/04/26/深度学习笔记（一）/8.png" alt="8"></p>
+<p>假设有4000张图片，一次跑完叫一个epoch</p>
+<p>学习率：学习率太大会错过最低值</p>
+<p>反向传播：</p>
+<p><img src="/2021/04/26/深度学习笔记（一）/9.png" alt="9"></p>
+<h2 id="第二章神经网络模型"><a href="#第二章神经网络模型" class="headerlink" title="第二章神经网络模型"></a>第二章神经网络模型</h2><p><img src="/2021/04/26/深度学习笔记（一）/10.png" alt="10"></p>
+<p><img src="/2021/04/26/深度学习笔记（一）/11.png" alt="11"></p>
+<p>非线性结构，加入激活函数使怎加非线性</p>
+<p><img src="/2021/04/26/深度学习笔记（一）/12.png" alt="12"></p>
+<p><img src="/2021/04/26/深度学习笔记（一）/13.png" alt="13"></p>
+<p>sigmoid 函数的缺点，一直求导会导致梯度消失，就不能反向传播。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">数据预处理</span><br><span class="line">x-=np.mean(X,axis=0)</span><br><span class="line">x/=np.std(X,axis=0)</span><br><span class="line">权重初始化：</span><br><span class="line">W = 0.01*np.random.randn(D,H)</span><br><span class="line">b可以初始化为1或0</span><br></pre></td></tr></table></figure>
+<h2 id="第三章神经网络案例实战"><a href="#第三章神经网络案例实战" class="headerlink" title="第三章神经网络案例实战"></a>第三章神经网络案例实战</h2><h3 id="手动实现简易三层神经网络"><a href="#手动实现简易三层神经网络" class="headerlink" title="手动实现简易三层神经网络"></a>手动实现简易三层神经网络</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">import numpy as np</span><br><span class="line">def sigmoid (x,derive=False):#derive=False不需要求导</span><br><span class="line">    if(derive==True):#反向传播进行求导其X=1/(1+np.exp(-x))</span><br><span class="line">        return x*(1-x)</span><br><span class="line">    return  1/(1+np.exp(-x))</span><br><span class="line">#五个样本，三个特征</span><br><span class="line">x=np.array([[0,0,1],</span><br><span class="line">           [0,1,1],</span><br><span class="line">           [1,0,1],</span><br><span class="line">           [1,1,1],</span><br><span class="line">           [0,0,1]]</span><br><span class="line">           )</span><br><span class="line">#标签</span><br><span class="line">y=np.array([[0],</span><br><span class="line">           [1],</span><br><span class="line">           [1],</span><br><span class="line">           [0],</span><br><span class="line">           [0]]</span><br><span class="line">           )</span><br><span class="line">np.random.seed(1)</span><br><span class="line">#定义三层神经网络</span><br><span class="line">#两个权重矩阵</span><br><span class="line">#*2-1是为了使范围在（-1，1）</span><br><span class="line">w0 = 2*np.random.random((3,4))-1#前面连3个特征，后面连四个神经元</span><br><span class="line">w1 = 2*np.random.random((4,1))-1#前连四个神经元，只有一个输出列</span><br><span class="line"></span><br><span class="line">for j in range(60000):</span><br><span class="line">    l0=x#l0为输入层</span><br><span class="line">    l1 = sigmoid(np.dot(l0,w0))</span><br><span class="line">    #l2为输出层</span><br><span class="line">    l2 = sigmoid(np.dot(l1,w1))</span><br><span class="line">    #均方误差项1/2(y-y*)^2求导后为y-y*</span><br><span class="line">    l2_error = y-l2</span><br><span class="line">    #print(l2_error.shape)</span><br><span class="line">    if(j%10000)==0:</span><br><span class="line">        print(&apos;Error&apos;+str(np.mean(np.abs(l2_error))))</span><br><span class="line">    l2_delta = l2_error * sigmoid(l2,derive=True)#</span><br><span class="line">    #print(l2_delta.shape)</span><br><span class="line">    l1_error = l2_delta.dot(w1.T)#需要对w1进行转置操作</span><br><span class="line">    l1_delta = l1_error*sigmoid(l1,derive=True)</span><br><span class="line">    #完成上面的反向传播后进行更改值</span><br><span class="line">    w1 += l1.T.dot(l2_delta)</span><br><span class="line">    w0 += l0.T.dot(l1_delta)</span><br></pre></td></tr></table></figure>
+<h3 id="神经网络的全连接分类实现"><a href="#神经网络的全连接分类实现" class="headerlink" title="神经网络的全连接分类实现"></a>神经网络的全连接分类实现</h3><p>普通练习：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">import numpy as np</span><br><span class="line">def sigmoid (x,derive=False):#derive=False不需要求导</span><br><span class="line">    if(derive==True):#反向传播进行求导其X=1/(1+np.exp(-x))</span><br><span class="line">        return x*(1-x)</span><br><span class="line">    return  1/(1+np.exp(-x))</span><br><span class="line">#五个样本，三个特征</span><br><span class="line">x=np.array([[0,0,1],</span><br><span class="line">           [0,1,1],</span><br><span class="line">           [1,0,1],</span><br><span class="line">           [1,1,1],</span><br><span class="line">           [0,0,1]]</span><br><span class="line">           )</span><br><span class="line">#标签</span><br><span class="line">y=np.array([[0],</span><br><span class="line">           [1],</span><br><span class="line">           [1],</span><br><span class="line">           [0],</span><br><span class="line">           [0]]</span><br><span class="line">           )</span><br><span class="line">np.random.seed(1)</span><br><span class="line">#定义三层神经网络</span><br><span class="line">#两个权重矩阵</span><br><span class="line">#*2-1是为了使范围在（-1，1）</span><br><span class="line">w0 = 2*np.random.random((3,4))-1#前面连3个特征，后面连四个神经元</span><br><span class="line">w1 = 2*np.random.random((4,1))-1#前连四个神经元，只有一个输出列</span><br><span class="line"></span><br><span class="line">for j in range(5):</span><br><span class="line">    l0=x#l0为输入层</span><br><span class="line">    l1 = sigmoid(np.dot(l0,w0))</span><br><span class="line">    #l2为输出层</span><br><span class="line">    l2 = sigmoid(np.dot(l1,w1))</span><br><span class="line">    #均方误差项1/2(y-y*)^2求导后为y-y*</span><br><span class="line">    l2_error = y-l2</span><br><span class="line">    #print(l2_error.shape)</span><br><span class="line">    if(j%10000)==0:</span><br><span class="line">        print(&apos;Error&apos;+str(np.mean(np.abs(l2_error))))</span><br><span class="line">    l2_delta = l2_error * sigmoid(l2,derive=True)#</span><br><span class="line">    #print(l2_delta.shape)</span><br><span class="line">    l1_error = l2_delta.dot(w1.T)#需要对w1进行转置操作</span><br><span class="line">    l1_delta = l1_error*sigmoid(l1,derive=True)</span><br><span class="line">    #完成上面的反向传播后进行更改值</span><br><span class="line"></span><br><span class="line">    w1 += l1.T.dot(l2_delta)</span><br><span class="line">    w0 += l0.T.dot(l1_delta)</span><br></pre></td></tr></table></figure>
+<p>手写神经网络训练图片：</p>
+<p>部分代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br></pre></td><td class="code"><pre><span class="line">神经网络传播过程</span><br><span class="line">#day2_CIFAR_10.py</span><br><span class="line">from layer_utils import *</span><br><span class="line">import numpy as np</span><br><span class="line">class TwoLayerNet(object):</span><br><span class="line">    def __int__(self,input_dim=3*32*32,hidden_dim=100,num_classes=10,weight_scale=1e-3,reg=0.0):</span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line">        :param input_dim: 输入数据的大小:3*32*32的彩色图</span><br><span class="line">        :param hidden_dim:隐藏层的神经元的 个数</span><br><span class="line">        :param num_classes:类别数</span><br><span class="line">        :param weight_scale:随基初始化的权重</span><br><span class="line">        :param reg:惩罚的权重项</span><br><span class="line">        :return:</span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line">        self.params=&#123;&#125;</span><br><span class="line">        self.reg = reg</span><br><span class="line">        self.params[&apos;w1&apos;] = weight_scale * np.random.randn(input_dim,hidden_dim)</span><br><span class="line">        self.params[&apos;b1&apos;] = np.zeros((1,hidden_dim))#偏置项拿0初始化</span><br><span class="line">        self.params[&apos;w2&apos;] = weight_scale *np.random.randn(hidden_dim,num_classes)</span><br><span class="line">        self.params[&apos;b2&apos;] = np.zeros(1,num_classes)#偏置项拿0初始化</span><br><span class="line">    def loss (self,X,y=None):</span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line">        :param x:</span><br><span class="line">        :param y:</span><br><span class="line">        :return:</span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line">        scores = None</span><br><span class="line">        N = X.shape[0]</span><br><span class="line">        w1,b1 = self.params[&apos;w2&apos;],self.params[&apos;b1&apos;]</span><br><span class="line">        w2,b2 = self.params[&apos;w2&apos;],self.params[&apos;b2&apos;]</span><br><span class="line">        h1,cache1 = affine_relu_forward(X,w1,b1)#h1：中间输出结果</span><br><span class="line">        out,cache2 = affine_forward(h1,w2,b2)</span><br><span class="line">        scores = out#每个类别的得分值</span><br><span class="line"></span><br><span class="line">        if y is None:</span><br><span class="line">            return scores</span><br><span class="line">        loss,grads = 0 ,&#123;&#125;#存梯度的值</span><br><span class="line">        data_loss,dscores = softmax_loss(scores,y)</span><br><span class="line">        reg_loss = 0.5 * self.reg*np.sum(w1*w1) + 0.5 *self.reg*np.sum(w2*w2)#正则化</span><br><span class="line">        loss = data_loss + reg_loss</span><br><span class="line">        dh1,dw2,db2 = affine_backward(dscores,cache2)</span><br><span class="line">        dx,dw1,db1 = affine_relu_bacekward(dh1,cache1)</span><br><span class="line">        dw2+= self.reg*w2</span><br><span class="line">        dw1+= self.reg*w1</span><br><span class="line">        grads[&apos;w1&apos;] = dw1</span><br><span class="line">        grads[&apos;b1&apos;] = db1</span><br><span class="line">        grads[&apos;w2&apos;] = dw2</span><br><span class="line">        grads[&apos;b2&apos;] = db2</span><br><span class="line">        return loss ,grads</span><br><span class="line">各层值的传播函数如下：</span><br><span class="line">import numpy as np</span><br><span class="line">def affine_relu_forward(x,w,b):</span><br><span class="line">    a,fc_cache = affine_forward(x,w,b)</span><br><span class="line">    out,relu_cache = relu_forward(a)</span><br><span class="line">    cache = (fc_cache,relu_cache)</span><br><span class="line">    return out,cache</span><br><span class="line">def relu_backward(dout,cache):</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line"></span><br><span class="line">    :param dout:</span><br><span class="line">    :param cache:</span><br><span class="line">    :return:</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    dx,x = None,cache</span><br><span class="line">    dx=dout</span><br><span class="line"></span><br><span class="line">def affine_backward(dout,cache):</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line"></span><br><span class="line">    :param dout:</span><br><span class="line">    :param cache:</span><br><span class="line">    :return:</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    x,w,b = cache</span><br><span class="line">    dx,dw,db = None,None,None</span><br><span class="line">    dx = np.dot(dout,w.T)</span><br><span class="line">    dx = np.reshape(dx,x.shape)</span><br><span class="line">    x_row = x.reshape(x.shape[0],-1)</span><br><span class="line">    dw = np.dot(x_row.T,dout)</span><br><span class="line">    db = np.sum(dout,axis=0,keepdims=True)</span><br><span class="line">    return dx ,dw ,db</span><br><span class="line"></span><br><span class="line"># def affine_forward(x,w,b):</span><br><span class="line">#     &quot;&quot;&quot;</span><br><span class="line"></span><br><span class="line">def affine_forward(x,w,b):</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line"></span><br><span class="line">    :param x:</span><br><span class="line">    :param w:</span><br><span class="line">    :param b:</span><br><span class="line">    :return:</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    out = None</span><br><span class="line">    N = x.shape[0]</span><br><span class="line">    x_row = x.reshape[N,-1]</span><br><span class="line">    out = np.dot(x_row,w)+b</span><br><span class="line">    cache = (x,w,b)</span><br><span class="line">    return out,cache</span><br><span class="line">def affine_relu_forward(x,w,b):</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line"></span><br><span class="line">    :param x:</span><br><span class="line">    :param w:</span><br><span class="line">    :param b:</span><br><span class="line">    :return:</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    a,fc_cache = affine_forward(x,w,b)#全连接后的值</span><br><span class="line">    out,relu_cache = relu_backward(a)#经过relu层后的值</span><br><span class="line">    cache = (fc_cache,relu_cache)</span><br><span class="line">    return out ,cache</span><br><span class="line">def affine_relu_bacekward(dout,cache):</span><br><span class="line">    fc_cache,relu_cache = cache</span><br><span class="line">    da = relu_backward(dout,relu_cache)</span><br><span class="line">    dx,dw,db = affine_backward(da,fc_cache)</span><br><span class="line">    return dx,dw,db</span><br><span class="line">def relu_forward(x):</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line"></span><br><span class="line">    :param x:</span><br><span class="line">    :return:</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    out = None</span><br><span class="line">    out = ReLU(x)</span><br><span class="line">    cache = x</span><br><span class="line">    return out,cache</span><br><span class="line">def relu_backward(dout,cache):</span><br><span class="line">    dx,x=None,cache</span><br><span class="line">    dx = dout</span><br><span class="line">    dx [x&lt;=0]= 0</span><br><span class="line">    return dx</span><br><span class="line">def affine_relu_backward(dout,cache):</span><br><span class="line">    fc_cache,relu_cache = cache</span><br><span class="line">    da = relu_backward(dout,fc_cache)</span><br><span class="line">    dx,dw,db = affine_backward(da,fc_cache)</span><br><span class="line">    return dx,dw,db</span><br><span class="line">def ReLU(x):</span><br><span class="line">    return np.maximum(0,x)#比0大取x，小取0</span><br><span class="line">def softmax_loss(x,y):</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line"></span><br><span class="line">    :param x:</span><br><span class="line">    :param y:</span><br><span class="line">    :return:</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    probs = np.exp(x-np.max(x,axis=1,keepdims=True))#归一化操作</span><br><span class="line">    probs/= np.sum(probs,axis=1,keepdims=True)</span><br><span class="line">    N = x.shape[0]</span><br><span class="line">    loss = -np.sum(np.log(probs[np.arange(N),y]))/N</span><br><span class="line">    dx = probs.copy()</span><br><span class="line">    dx[np.arange(N),y]-=1#softmax 层求梯度的过程</span><br><span class="line">    dx/=N</span><br></pre></td></tr></table></figure>
+<h2 id="第四章卷积神经网络"><a href="#第四章卷积神经网络" class="headerlink" title="第四章卷积神经网络"></a>第四章卷积神经网络</h2><h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>步骤：准备数据—&gt;在图中前向传播得到损失函数—-&gt;反向传播计算梯度值—-&gt;更新参数的一次循环</p>
+<p>应用：识别，检索，物体检测，元素分离（GPU）</p>
+<p><img src="/2021/04/26/深度学习笔记（一）/14.png" alt="14"></p>
+<p>卷积神经网络的组成：输入层，卷积层，激活函数，池化层，全连接层</p>
+<p>一张图片—-&gt;低级特征提取—-&gt;中级特征提取—-&gt;高级特征提取—–&gt;可训练的分类器</p>
+<h3 id="计算过程"><a href="#计算过程" class="headerlink" title="计算过程"></a>计算过程</h3><p><img src="/2021/04/26/深度学习笔记（一）/15.png" alt="15"></p>
+<p><img src="/2021/04/26/深度学习笔记（一）/16.png" alt="16"></p>
+<p><img src="/2021/04/26/深度学习笔记（一）/17.png" alt="17"></p>
+<p>滑动的步长：stride = 2，如果是一个7x7的输入得到一个3x3的输出</p>
+<p>可以加上一圈padding项使图片的边缘信息变成非边缘，有利于利用边缘信息，可以用0填充。Pad=1加1圈，Pad=2加两圈</p>
+<h3 id="计算输出大小"><a href="#计算输出大小" class="headerlink" title="计算输出大小"></a>计算输出大小</h3><p>例子：</p>
+<p>输入 = 7x7 ,Filter  = 3x3,pad = 1,stride=1(步长),Outpout=?</p>
+<p>h_I=w_I=7</p>
+<p>Filter_h=Filter_w=3</p>
+<p>h_o=(h_I-Filter_h+2Pad)/stride+1=7</p>
+<p>w_o=(w_I-Filter_w+2Pad)/stride+1=7</p>
+<h3 id="池化层（Pooling-layer）"><a href="#池化层（Pooling-layer）" class="headerlink" title="池化层（Pooling layer）"></a>池化层（Pooling layer）</h3><p>两种方式：</p>
+<p>mean方式：将一个区域的值起来求均值作为一个特征</p>
+<p>max方式：取一个区域中的最大值作为这个区域的特征</p>
+<p><img src="/2021/04/26/深度学习笔记（一）/18.png" alt="18"></p>
+<p>maxPoolin 前向传播：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">def max_pool_forward_naive(x, pool_param):</span><br><span class="line">    HH, WW = pool_param[&apos;pool_height&apos;], pool_param[&apos;pool_width&apos;]</span><br><span class="line">    s = pool_param[&apos;stride&apos;]</span><br><span class="line">    N, C, H, W = x.shape</span><br><span class="line">    H_new = 1 + (H - HH) / s</span><br><span class="line">    W_new = 1 + (W - WW) / s</span><br><span class="line">    out = np.zeros((N, C, H_new, W_new))</span><br><span class="line">    for i in range(N):</span><br><span class="line">        for j in range(C):</span><br><span class="line">            for k in range(H_new):</span><br><span class="line">                for l in range(W_new):</span><br><span class="line">                    window = x[i, j, k*s:HH+k*s, l*s:WW+l*s] </span><br><span class="line">                    out[i, j, k, l] = np.max(window)</span><br><span class="line">    cache = (x, pool_param)</span><br><span class="line">    return out, cache</span><br></pre></td></tr></table></figure>
+<p>maxPoolin 项反向传播：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">def max_pool_backward_naive(dout, cache):</span><br><span class="line">    x, pool_param = cache</span><br><span class="line">    HH, WW = pool_param[&apos;pool_height&apos;], pool_param[&apos;pool_width&apos;]</span><br><span class="line">    s = pool_param[&apos;stride&apos;]</span><br><span class="line">    N, C, H, W = x.shape</span><br><span class="line">    H_new = 1 + (H - HH) / s</span><br><span class="line">    W_new = 1 + (W - WW) / s</span><br><span class="line">    dx = np.zeros_like(x)</span><br><span class="line">    for i in range(N):    </span><br><span class="line">        for j in range(C):        </span><br><span class="line">            for k in range(H_new):            </span><br><span class="line">                for l in range(W_new):                </span><br><span class="line">                    window = x[i, j, k*s:HH+k*s, l*s:WW+l*s]                </span><br><span class="line">                    m = np.max(window)               </span><br><span class="line">                    dx[i, j, k*s:HH+k*s, l*s:WW+l*s] = (window == m) * dout[i, j, k, l]</span><br><span class="line">    return dx</span><br></pre></td></tr></table></figure>
+<h3 id="RNN"><a href="#RNN" class="headerlink" title="RNN"></a>RNN</h3><p><img src="/2021/04/26/深度学习笔记（一）/19.png" alt="19"></p>
+<p><img src="/2021/04/26/深度学习笔记（一）/20.png" alt="20"></p>
+<h2 id="第五章物体检测"><a href="#第五章物体检测" class="headerlink" title="第五章物体检测"></a>第五章物体检测</h2><p>10.1.12.71 ， 72</p>
+<p>administrator/nlSOFT23</p>
+
+      
+    </div>
+    
+    
+    
+     
+   <div>
+  
+    ﻿<div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+
+
+  
+</div>
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.png" alt="wq 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.png" alt="wq 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    wq
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://wq371680537.github.io/2021/04/26/深度学习笔记（一）/" title="深度学习笔记（一）">https://wq371680537.github.io/2021/04/26/深度学习笔记（一）/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/人工智能/" rel="tag"><i class="fa fa-tag"></i> 人工智能</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/09/28/2-1过滤逻辑错误审计/" rel="next" title="2.1过滤逻辑错误审计">
+                <i class="fa fa-chevron-left"></i> 2.1过滤逻辑错误审计
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2021/04/28/周志华《机器学习》笔记/" rel="prev" title="周志华《机器学习》笔记">
+                周志华《机器学习》笔记 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/touxiang.jpg" alt="wq">
+            
+              <p class="site-author-name" itemprop="name">wq</p>
+              <p class="site-description motion-element" itemprop="description">welcome</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/yourname" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:yourname@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://plus.google.com/yourname" target="_blank" title="Google">
+                      
+                        <i class="fa fa-fw fa-google"></i>Google</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://twitter.com/yourname" target="_blank" title="Twitter">
+                      
+                        <i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.facebook.com/yourname" target="_blank" title="FB Page">
+                      
+                        <i class="fa fa-fw fa-facebook"></i>FB Page</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://vk.com/yourname" target="_blank" title="VK Group">
+                      
+                        <i class="fa fa-fw fa-vk"></i>VK Group</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://stackoverflow.com/yourname" target="_blank" title="StackOverflow">
+                      
+                        <i class="fa fa-fw fa-stack-overflow"></i>StackOverflow</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://youtube.com/yourname" target="_blank" title="YouTube">
+                      
+                        <i class="fa fa-fw fa-youtube"></i>YouTube</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://instagram.com/yourname" target="_blank" title="Instagram">
+                      
+                        <i class="fa fa-fw fa-instagram"></i>Instagram</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="skype:yourname?call|chat" target="_blank" title="Skype">
+                      
+                        <i class="fa fa-fw fa-skype"></i>Skype</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.baidu.com/" title="百度" target="_blank">百度</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#深度学习笔记（一）"><span class="nav-number">1.</span> <span class="nav-text">深度学习笔记（一）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#第一章-深度学习必备知识点"><span class="nav-number">1.1.</span> <span class="nav-text">第一章 深度学习必备知识点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#深度学习的套路"><span class="nav-number">1.1.1.</span> <span class="nav-text">深度学习的套路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#K-近邻"><span class="nav-number">1.1.2.</span> <span class="nav-text">K-近邻</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#神经网络"><span class="nav-number">1.1.3.</span> <span class="nav-text">神经网络</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#机器学习"><span class="nav-number">1.1.4.</span> <span class="nav-text">机器学习</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第二章神经网络模型"><span class="nav-number">1.2.</span> <span class="nav-text">第二章神经网络模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第三章神经网络案例实战"><span class="nav-number">1.3.</span> <span class="nav-text">第三章神经网络案例实战</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#手动实现简易三层神经网络"><span class="nav-number">1.3.1.</span> <span class="nav-text">手动实现简易三层神经网络</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#神经网络的全连接分类实现"><span class="nav-number">1.3.2.</span> <span class="nav-text">神经网络的全连接分类实现</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第四章卷积神经网络"><span class="nav-number">1.4.</span> <span class="nav-text">第四章卷积神经网络</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#介绍"><span class="nav-number">1.4.1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#计算过程"><span class="nav-number">1.4.2.</span> <span class="nav-text">计算过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#计算输出大小"><span class="nav-number">1.4.3.</span> <span class="nav-text">计算输出大小</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#池化层（Pooling-layer）"><span class="nav-number">1.4.4.</span> <span class="nav-text">池化层（Pooling layer）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RNN"><span class="nav-number">1.4.5.</span> <span class="nav-text">RNN</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第五章物体检测"><span class="nav-number">1.5.</span> <span class="nav-text">第五章物体检测</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-[object Object]"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">王强</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">16.2k</span>
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+
+
+<div>
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<span id="busuanzi_container_site_pv" style="display:none">
+    ��վ�ܷ����� <span id="busuanzi_value_site_pv"></span> ��
+    <span class="post-meta-divider">|</span>
+</span>
+<span id="busuanzi_container_site_uv" style="display:none">
+    ��<span id="busuanzi_value_site_uv"></span>�˿����ҵĲ�����
+</span>
+</div>
+
+<span id="sitetime"></span>
+<script language="javascript">
+  function siteTime(){
+    window.setTimeout("siteTime()", 1000);
+    var seconds = 1000;
+    var minutes = seconds * 60;
+    var hours = minutes * 60;
+    var days = hours * 24;
+    var years = days * 365;
+    var today = new Date();
+    var todayYear = today.getFullYear();
+    var todayMonth = today.getMonth()+1;
+    var todayDate = today.getDate();
+    var todayHour = today.getHours();
+    var todayMinute = today.getMinutes();
+    var todaySecond = today.getSeconds();
+    var t1 = Date.UTC(2018,06,07,12,00,00); // ���ý�����վ��ʱ��
+    var t2 = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond);
+    var diff = t2-t1;
+    var diffYears = Math.floor(diff/years);
+    var diffDays = Math.floor((diff/days)-diffYears*365);
+    var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
+    var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
+    var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
+    document.getElementById("sitetime").innerHTML=" ������"+diffYears+" �� "diffDays+" �� "+diffHours+" Сʱ "+diffMinutes+" ���� "+diffSeconds+" ��";
+  }
+  siteTime();
+</script>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
+
+   <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;"></canvas> 
+   <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+   <script type="text/javascript" src="/js/src/fireworks.js"></script>
+
